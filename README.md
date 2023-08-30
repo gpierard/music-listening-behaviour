@@ -15,16 +15,14 @@ This project includes basic elements of logging and automated testing. A global 
 - create a virtual environment using the following
 ```
 mkdir <your_envir_path> && cd <your_envir_path>
-cd <your_envir_path>
 .\.venv\Scripts\activate  # Windows
 cd <this_repo_path>
 pip install -r requirements.txt
 pip install -r requirements.txt
 pip install "kedro-datasets[pandas]"
 ```
-If `pip install "kedro-datasets[pandas]"` returns errors, you could install with `--no-deps` and manually install `tables==3.7.0` for example. I provided the result of `pip freeze > src/requirements_freeze.txt`.
 
-- [Get the source data](http://ocelma.net/MusicRecommendationDataset/lastfm-1K.html ) which I did not commit to version control. 
+- [Get the source data](http://ocelma.net/MusicRecommendationDataset/lastfm-1K.html ) (which I did not commit to version control).
   - destination folder is data\01_raw\lastfm-dataset-1K which contains
     - `userid-profile.tsv`
     - `userid-timestamp-artid-artname-traid-traname.tsv`
@@ -32,6 +30,11 @@ If `pip install "kedro-datasets[pandas]"` returns errors, you could install with
 - For node tests it is necessary to create the sample test data (subset of `userid-timestamp-artid-artname-traid-traname.tsv`) by running `python src/tests/define_test_data.py`. The data required for `kedro test` is now available in data\01_raw\test_data.csv.
 
 - Inside the project, test with `kedro test`, run with `kedro run`, and explore with `kedro jupyter notebook` and `kedro ipython`.
+
+#### troubleshooting 
+
+- If, like me, `pip install "kedro-datasets[pandas]"` fails, you could install with `--no-deps` and manually install `tables==3.7.0` for example. I provided the result of `pip freeze > src/requirements_freeze.txt`.
+- Please note that depending on your platform, running local spark clusters might need some extra configuration. This could cause bugs, especially when writing spark files.
 
 ## Approach
 
@@ -75,7 +78,7 @@ long_session_quantile: 0.9 # quantile threshold which separates long from short 
 
 #### results
 
-941 users out of 992 had at least one long listening session (94.85%). This might seem counterintuitive based on the top 10% percentile, but should be realistic given that each user has 1187 sessions on average.
+941 users out of 992 had at least one long listening session (94.85%). This might seem counter-intuitive based on the top 10% percentile, but should be realistic given that each user has 1187 sessions on average. These results were cross-checked using `src/tests/crosscheck.R`.
 
 ### kedro setup 
 
@@ -88,7 +91,7 @@ long_session_quantile: 0.9 # quantile threshold which separates long from short 
 - See if the algorithm can be improved (using for example non-equi joins)
 - Adapt to streaming data where appropriate
 - Test resilience by running with other datasets
-- Expand the testing. For example, I used the `src/tests/crosscheck.R` script to verify that the results are the same by using another backend. This gives me more confidence in these results. These types of crosschecks could potentially be automated.
+- Expand the testing. For example, I used the `src/tests/crosscheck.R` script to verify that the results are identical with another backend. This gives me more confidence in the output. These types of crosschecks could potentially be automated.
 - Improve logging and exception handling
 - Explore and evaluate alternative ways of defining the kedro artefacts, for example what are the pros and cons of defining the pipelines in yaml instead of python source code?
 
