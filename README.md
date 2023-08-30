@@ -76,11 +76,11 @@ long_session_quantile: 0.9 # quantile threshold which separates long from short 
 
 
 
-#### results
+#### Results
 
 941 users out of 992 had at least one long listening session (94.85%). This might seem counter-intuitive based on the top 10% percentile, but should be realistic given that each user has 1187 sessions on average. These results were cross-checked using `src/tests/crosscheck.R`.
 
-### kedro setup 
+### Kedro setup 
 
 - The project contains basic automated testing, globally and at node level, which can be run using `kedro test`.
 - An `after_context_created` hook was defined in `src/music_listening_behaviour/hooks.py` and registered in `src/music_listening_behaviour/settings.py` in order to make a global `sparkSession` available to the pipeline. 
