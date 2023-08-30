@@ -23,7 +23,7 @@ pip install "kedro-datasets[pandas]"
 ```
 
 - [Get the source data](http://ocelma.net/MusicRecommendationDataset/lastfm-1K.html ) (which I did not commit to version control).
-  - destination folder is data\01_raw\lastfm-dataset-1K which contains
+  - destination folder is `data\01_raw\lastfm-dataset-1K` which contains
     - `userid-profile.tsv`
     - `userid-timestamp-artid-artname-traid-traname.tsv`
 
