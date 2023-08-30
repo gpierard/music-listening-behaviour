@@ -87,7 +87,7 @@ long_session_quantile: 0.9 # quantile threshold which separates long from short 
 
 - See if the algorithm can be improved (using for example non-equi joins)
 - Adapt to streaming data where appropriate
-- Run with the larger dataset (25k unique users)
+- Test resilience by running with other datasets
 - Expand automated and in-node testing
 - Improve logging and exception handling
 
