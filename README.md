@@ -6,6 +6,9 @@ Gauthier Pierard's Music Listening Behaviour case study submission to UCB as a K
 
 This project includes basic elements of logging and automated testing. A global spark session is defined across the pipeline using a custom hook.
 
+
+![viz image](https://github.com/gpierard/music-listening-behaviour/blob/main/viz.png)
+
 ## How to run 
 
 - clone the repository
@@ -68,7 +71,7 @@ long_session_quantile: 0.9 # quantile threshold which separates long from short 
     - sessions are segregated as long and short
     - users which contain at least one long session are identified and counted.
 
-    ![viz image](https://github.com/gpierard/music-listening-behaviour/blob/main/viz.png)
+
 
 #### results
 
