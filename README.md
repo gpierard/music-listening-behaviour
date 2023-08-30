@@ -39,7 +39,7 @@ The data required for `kedro test` is now available in `data\01_raw\test_data.cs
 #### troubleshooting
 
 - If, like me, `pip install "kedro-datasets[pandas]"` fails, you could install with `--no-deps` and manually install `tables==3.7.0` for example. I provided the result of `pip freeze > src/requirements_freeze.txt`.
-- Please note that depending on your platform, running local spark clusters might need some extra configuration. This could cause bugs, especially when writing spark files.
+- Please note that depending on your platform, running local spark clusters might need some Hadoop configuration. This could cause bugs, especially when writing spark files.
 
 
 ## Approach
