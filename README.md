@@ -12,7 +12,7 @@ This project includes basic elements of logging and automated testing. A global 
 ## How to run 
 
 - clone the repository
-- create a virtual environment using the following
+- create and activate a virtual environment
 ```
 mkdir <your_envir_path> && cd <your_envir_path>
 .\.venv\Scripts\activate  # Windows
@@ -27,14 +27,20 @@ pip install "kedro-datasets[pandas]"
     - `userid-profile.tsv`
     - `userid-timestamp-artid-artname-traid-traname.tsv`
 
-- For node tests it is necessary to create the sample test data (subset of `userid-timestamp-artid-artname-traid-traname.tsv`) by running `python src/tests/define_test_data.py`. The data required for `kedro test` is now available in data\01_raw\test_data.csv.
+- generate the test data (subset of `userid-timestamp-artid-artname-traid-traname.tsv`) 
+
+```python src/tests/define_test_data.py```
+
+The data required for `kedro test` is now available in data\01_raw\test_data.csv.
 
 - Inside the project, test with `kedro test`, run with `kedro run`, and explore with `kedro jupyter notebook` and `kedro ipython`.
 
-#### troubleshooting 
+
+#### troubleshooting
 
 - If, like me, `pip install "kedro-datasets[pandas]"` fails, you could install with `--no-deps` and manually install `tables==3.7.0` for example. I provided the result of `pip freeze > src/requirements_freeze.txt`.
 - Please note that depending on your platform, running local spark clusters might need some extra configuration. This could cause bugs, especially when writing spark files.
+
 
 ## Approach
 
