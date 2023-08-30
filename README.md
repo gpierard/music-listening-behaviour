@@ -36,12 +36,6 @@ The data required for `kedro test` is now available in `data\01_raw\test_data.cs
 - Inside the project, test with `kedro test`, run with `kedro run`, and explore with `kedro jupyter notebook` and `kedro ipython`.
 
 
-#### troubleshooting
-
-- If, like me, `pip install "kedro-datasets[pandas]"` fails, you could install with `--no-deps` and manually install `tables==3.7.0` for example. I provided the result of `pip freeze > src/requirements_freeze.txt`.
-- Please note that depending on your platform, running local spark clusters might require some Hadoop configuration. This could cause bugs, especially when writing spark files.
-
-
 ## Approach
 
 ### Your mission
@@ -65,7 +59,7 @@ The general approach to solve this question is as follows.
 
 - Global parameters are defined in `conf/base/parameters.yml`
 ```
-session_maxidletime: 900 # threshold time in seconds after which two played tracks don't belong to the same user session. 
+session_maxidletime: 900 # threshold time in seconds after which two successive played tracks don't belong to the same user session. 
 long_session_quantile: 0.9 # quantile threshold which separates long from short sessions
 ```
 
