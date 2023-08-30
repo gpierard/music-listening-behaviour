@@ -68,7 +68,6 @@ long_session_quantile: 0.9 # quantile threshold which separates long from short 
     - sessions are segregated as long and short
     - users which contain at least one long session are identified and counted.
 
-#### Visualization 
     ![viz image](https://github.com/gpierard/music-listening-behaviour/blob/main/viz.png)
 
 #### results
