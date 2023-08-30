@@ -31,7 +31,7 @@ pip install "kedro-datasets[pandas]"
 
 ```python src/tests/define_test_data.py```
 
-The data required for `kedro test` is now available in data\01_raw\test_data.csv.
+The data required for `kedro test` is now available in `data\01_raw\test_data.csv`.
 
 - Inside the project, test with `kedro test`, run with `kedro run`, and explore with `kedro jupyter notebook` and `kedro ipython`.
 
