@@ -11,6 +11,7 @@ This project includes basic elements of logging and automated testing. A global 
 - clone the repository
 - create a virtual environment using the following
 ```
+mkdir <your_envir_path> && cd <your_envir_path>
 cd <your_envir_path>
 .\.venv\Scripts\activate  # Windows
 cd <this_repo_path>
@@ -66,12 +67,14 @@ long_session_quantile: 0.9 # quantile threshold which separates long from short 
     - The threshold corresponding to the top decile is calculated (`9025.0` seconds with the initial data).
     - sessions are segregated as long and short
     - users which contain at least one long session are identified and counted.
-    
+
+#### Visualization
+
     ![viz image](https://github.com/gpierard/music-listening-behaviour/blob/main/viz.png)
 
 #### results
 
-941 users out of 992 had at least one long listening session (94.85%). This might seem counterintuitive based on the top 10% percentile, but is realistic given that each user has 1187 sessions on average.
+941 users out of 992 had at least one long listening session (94.85%). This might seem counterintuitive based on the top 10% percentile, but should be realistic given that each user has 1187 sessions on average.
 
 ### kedro setup 
 

@@ -16,4 +16,4 @@ kedro-datasets[spark]
 #"kedro-datasets[pandas]"
 pyspark==3.4.1
 pandas==1.5.0
-
+openpyxl==3.1.2
