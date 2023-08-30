@@ -67,9 +67,8 @@ long_session_quantile: 0.9 # quantile threshold which separates long from short 
     - sessions are segregated as long and short
     - users which contain at least one long session are identified and counted.
     
-    
-    ![viz image](https://github.com/gpierard/music_listening_behaviour/blob/main/viz.png?raw=true)
-    
+    ![viz image](https://github.com/gpierard/music-listening-behaviour/blob/main/viz.png)
+
 #### results
 
 941 users out of 992 had at least one long listening session (94.85%). This might seem counterintuitive based on the top 10% percentile, but is realistic given that each user has 1187 sessions on average.
