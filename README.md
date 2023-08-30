@@ -88,9 +88,9 @@ long_session_quantile: 0.9 # quantile threshold which separates long from short 
 - See if the algorithm can be improved (using for example non-equi joins)
 - Adapt to streaming data where appropriate
 - Test resilience by running with other datasets
-- Expand the testing. For example, I used the `src/tests/crosscheck.r` script to verify that the results are the same by using another backend. This gives me more confidence in these results. These types of crosschecks could potentially be automated.
+- Expand the testing. For example, I used the `src/tests/crosscheck.R` script to verify that the results are the same by using another backend. This gives me more confidence in these results. These types of crosschecks could potentially be automated.
 - Improve logging and exception handling
-
+- Explore and evaluate alternative ways of defining the kedro artefacts, for example what are the pros and cons of defining the pipelines in yaml instead of python source code?
 
 
 
