@@ -1,4 +1,40 @@
-# Here you can define all your data sets by using simple YAML syntax.
+# gp: defining all data sets using YAML syntax.
 #
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://docs.kedro.org/en/stable/data/data_catalog.html
+
+userid_profiles:
+  type: pandas.CSVDataSet
+  filepath: data/01_raw/lastfm-dataset-1K/userid-profile.tsv
+  load_args:
+    sep: "\t"
+#    inferSchema: True
+    header: 0
+#    header: None  # Indicate that there are no headers
+#    names: ["id", "gen", "Occupation"]  # header is present
+  save_args:
+    index: False
+
+track_sessions: 
+  type: spark.SparkDataSet
+  file_format: csv
+  filepath: data/01_raw/lastfm-dataset-1K/userid-timestamp-artid-artname-traid-traname.tsv
+  load_args:
+    sep: "\t"
+    header: False
+    schema:
+      filepath: conf/base/playlists-schema.json
+  save_args:
+    index: False
+
+ts_formatted:
+  type: MemoryDataSet
+  copy_mode: assign 
+
+results_summary:
+  type: pandas.ExcelDataSet 
+  filepath: data/03_primary/results_summary.xlsx
+  save_args: 
+    sheet_name: Sheet1
+    #mode: overwrite
+

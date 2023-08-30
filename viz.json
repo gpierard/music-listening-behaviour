@@ -1,0 +1,180 @@
+{
+  "nodes": [
+    {
+      "id": "46d43a3e",
+      "name": "preprocess_format_tracksessions",
+      "tags": [],
+      "pipelines": [
+        "data_processing",
+        "__default__"
+      ],
+      "type": "task",
+      "modular_pipelines": [],
+      "parameters": {
+        "session_maxidletime": 900,
+        "long_session_quantile": 0.9
+      }
+    },
+    {
+      "id": "639d4d36",
+      "name": "track_sessions",
+      "tags": [],
+      "pipelines": [
+        "data_processing",
+        "__default__"
+      ],
+      "type": "data",
+      "modular_pipelines": [],
+      "layer": null,
+      "dataset_type": "spark.spark_dataset.SparkDataSet"
+    },
+    {
+      "id": "75c6b42b",
+      "name": "userid_profiles",
+      "tags": [],
+      "pipelines": [
+        "data_processing",
+        "__default__"
+      ],
+      "type": "data",
+      "modular_pipelines": [],
+      "layer": null,
+      "dataset_type": "pandas.csv_dataset.CSVDataSet"
+    },
+    {
+      "id": "f1f1425b",
+      "name": "parameters",
+      "tags": [],
+      "pipelines": [
+        "data_processing",
+        "__default__"
+      ],
+      "type": "parameters",
+      "modular_pipelines": [],
+      "layer": null,
+      "dataset_type": null
+    },
+    {
+      "id": "2eb331cd",
+      "name": "ts_formatted",
+      "tags": [],
+      "pipelines": [
+        "data_processing",
+        "__default__"
+      ],
+      "type": "data",
+      "modular_pipelines": [],
+      "layer": null,
+      "dataset_type": "io.memory_dataset.MemoryDataset"
+    },
+    {
+      "id": "d0abd141",
+      "name": "process_summarize_tracksessions",
+      "tags": [],
+      "pipelines": [
+        "data_processing",
+        "__default__"
+      ],
+      "type": "task",
+      "modular_pipelines": [],
+      "parameters": {
+        "session_maxidletime": 900,
+        "long_session_quantile": 0.9
+      }
+    },
+    {
+      "id": "0b4ea930",
+      "name": "results_summary",
+      "tags": [],
+      "pipelines": [
+        "data_processing",
+        "__default__"
+      ],
+      "type": "data",
+      "modular_pipelines": [],
+      "layer": null,
+      "dataset_type": "pandas.excel_dataset.ExcelDataSet"
+    }
+  ],
+  "edges": [
+    {
+      "source": "f1f1425b",
+      "target": "46d43a3e"
+    },
+    {
+      "source": "639d4d36",
+      "target": "46d43a3e"
+    },
+    {
+      "source": "46d43a3e",
+      "target": "2eb331cd"
+    },
+    {
+      "source": "2eb331cd",
+      "target": "d0abd141"
+    },
+    {
+      "source": "f1f1425b",
+      "target": "d0abd141"
+    },
+    {
+      "source": "d0abd141",
+      "target": "0b4ea930"
+    },
+    {
+      "source": "75c6b42b",
+      "target": "46d43a3e"
+    }
+  ],
+  "layers": [],
+  "tags": [],
+  "pipelines": [
+    {
+      "id": "__default__",
+      "name": "__default__"
+    },
+    {
+      "id": "data_processing",
+      "name": "data_processing"
+    }
+  ],
+  "modular_pipelines": {
+    "__root__": {
+      "id": "__root__",
+      "name": "__root__",
+      "inputs": [],
+      "outputs": [],
+      "children": [
+        {
+          "id": "f1f1425b",
+          "type": "parameters"
+        },
+        {
+          "id": "0b4ea930",
+          "type": "data"
+        },
+        {
+          "id": "2eb331cd",
+          "type": "data"
+        },
+        {
+          "id": "d0abd141",
+          "type": "task"
+        },
+        {
+          "id": "75c6b42b",
+          "type": "data"
+        },
+        {
+          "id": "639d4d36",
+          "type": "data"
+        },
+        {
+          "id": "46d43a3e",
+          "type": "task"
+        }
+      ]
+    }
+  },
+  "selected_pipeline": "__default__"
+}

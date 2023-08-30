@@ -1,3 +1,34 @@
+# gp: this file creates an after_context_created hook. 
+# This ensures that a global SparkSession has been initialised before the Kedro pipeline is run.
+
+from kedro.framework.hooks import hook_impl
+from pyspark import SparkConf
+from pyspark.sql import SparkSession
+
+class SparkHooks:
+    @hook_impl
+    def after_context_created(self, context) -> None:
+        """Initialises a SparkSession using the config
+        defined in project's conf folder.
+        """
+
+        # Load the spark configuration in spark.yaml using the config loader
+        parameters = context.config_loader.get("spark*", "spark*/**")
+        spark_conf = SparkConf().setAll(parameters.items())
+
+        # Initialise the spark session
+        spark_session_conf = (
+            SparkSession.builder.appName(context.project_path.name)
+            .master("local[6]")  # Set local mode with 6 CPU cores
+            .enableHiveSupport()
+            .config(conf=spark_conf)
+        )
+        _spark_session = spark_session_conf.getOrCreate()
+        _spark_session.sparkContext.setLogLevel("WARN")
+
+
+
+
 """Project settings. There is no need to edit this file unless you want to change values
 from the Kedro defaults. For further information, including these default values, see
 https://kedro.readthedocs.io/en/stable/kedro_project_setup/settings.html."""
@@ -34,22 +65,8 @@ https://kedro.readthedocs.io/en/stable/kedro_project_setup/settings.html."""
 
 # Class that manages Kedro's library components.
 # from kedro.framework.context import KedroContext
-
-# gp: use the custom context
-
-#from music_listening_behaviour.spark_context import SparkContext
-#CONTEXT_CLASS = SparkContext
+# CONTEXT_CLASS = KedroContext
 
 # Class that manages the Data Catalog.
 # from kedro.io import DataCatalog
 # DATA_CATALOG_CLASS = DataCatalog
-
-
-# gp: register the spark hook
-from music_listening_behaviour.hooks import SparkHooks
-HOOKS = (SparkHooks(),)
-
-
-
-
-

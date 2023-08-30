@@ -1,0 +1,11 @@
+# gp: this file centralizes `spark config parameters 
+
+# Other Spark configuration properties
+
+spark.driver.memory: 3g
+spark.executor.memory: 10g
+spark.executor.cores: 6
+    
+# settings for the UI
+spark.ui.port: 8080
+spark.ui.enabled: true

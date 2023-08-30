@@ -1,0 +1,6 @@
+session_maxidletime: 900 # threshold time in seconds after which two played tracks don't belong to the same user session. 
+long_session_quantile: 0.9 # quantile threshold which separates long from short sessions
+
+
+
+

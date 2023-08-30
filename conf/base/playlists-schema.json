@@ -1,0 +1,8 @@
+{"fields":[
+  {"metadata":{},"name":"userid","nullable":true,"type":"string"},
+  {"metadata":{},"name":"timestamp","nullable":true,"type":"string"},
+  {"metadata":{},"name":"artistid","nullable":true,"type":"string"},
+  {"metadata":{},"name":"artistname","nullable":true,"type":"string"},
+  {"metadata":{},"name":"traid","nullable":true,"type":"string"},
+  {"metadata":{},"name":"traname","nullable":true,"type":"string"}
+],"type":"struct"}
