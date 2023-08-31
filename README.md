@@ -4,7 +4,7 @@
 
 Gauthier Pierard's Music Listening Behaviour case study submission to UCB as a Kedro project, which was generated using `kedro 0.18.12`, `pyspark==3.4.1` and `Python 3.10.5` on Windows.
 
-This project includes basic elements of logging and automated testing. A global spark session is defined across the pipeline using a custom hook.
+This project includes basic elements of integration with Spark, logging and automated testing.
 
 
 ![viz image](https://github.com/gpierard/music-listening-behaviour/blob/main/viz.png)
