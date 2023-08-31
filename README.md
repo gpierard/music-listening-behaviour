@@ -29,7 +29,9 @@ pip install "kedro-datasets[pandas]"
 
 - generate the test data (necesary for `kedro test`, subset of `userid-timestamp-artid-artname-traid-traname.tsv`) 
 
-```python src/tests/define_test_data.py```
+```
+python src/tests/define_test_data.py
+```
 
 The data required for `kedro test` is now available in `data\01_raw\test_data.csv`.
 
