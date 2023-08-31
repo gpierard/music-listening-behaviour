@@ -70,7 +70,7 @@ long_session_quantile: 0.9 # quantile threshold which separates long from short 
   - preprocess_format_tracksessions, basically just performs consistency checks (assertions), and formats the `timestamp` column to `unix_timestamp`.
   - process_tracksessions: performs the following:
     - windows and groups the data by `userid` and order these groups by `timestamp`
-    - The `is_new_session` column is True whether the time between two successive tracks played is above the `session_maxidletime` of 900 seconds. 
+    - The `is_new_session` column is defined as True if the time between two successive tracks played is above the `session_maxidletime` of 900 seconds. 
     - Total session times are computed across all sessions
     - The threshold corresponding to the top decile is calculated (`9025.0` seconds with the initial data).
     - sessions are segregated as long and short
