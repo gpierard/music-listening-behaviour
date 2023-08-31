@@ -18,7 +18,6 @@ mkdir <your_envir_path> && cd <your_envir_path>
 .\.venv\Scripts\activate  # Windows
 cd <this_repo_path>
 pip install -r requirements.txt
-pip install -r requirements.txt
 pip install "kedro-datasets[pandas]"
 ```
 
