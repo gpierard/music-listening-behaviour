@@ -27,7 +27,7 @@ pip install "kedro-datasets[pandas]"
     - `userid-profile.tsv`
     - `userid-timestamp-artid-artname-traid-traname.tsv`
 
-- generate the test data (subset of `userid-timestamp-artid-artname-traid-traname.tsv`) 
+- generate the test data (necesary for `kedro test`, subset of `userid-timestamp-artid-artname-traid-traname.tsv`) 
 
 ```python src/tests/define_test_data.py```
 
