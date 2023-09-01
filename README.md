@@ -89,7 +89,6 @@ long_session_quantile: 0.9 # quantile threshold which separates long from short 
 
 ## How this project could be improved 
 
-- See if the algorithm can be improved (using for example non-equi joins)
 - Create and automate more tests. For example, I used the `src/tests/crosscheck.R` script to verify that the results are identical with another backend. This gives me more confidence in the output. These types of crosschecks could potentially be automated.
 - Test the resilience by running with other datasets
 - Improve logging and exception handling
